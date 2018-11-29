@@ -46,7 +46,8 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
             // draw image first
             File imageFile = new File(imageItem.path);
             if (imageFile.exists()) {
-                newURI = Uri.fromFile(imageFile);
+//                newURI = Uri.fromFile(imageFile);
+                newURI = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + "com.jarvia.jabap.provider", imageFile);
             } else {
                 newURI = FileUtils.getUriByResId(R.drawable.default_image);
             }
